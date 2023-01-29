@@ -18,9 +18,6 @@ public class searchFieldTest {
     private WebDriver driver;
 
 
-
-
-
     @AfterMethod
     protected final void tearDownTest() {
         if (this.driver != null) {
@@ -35,12 +32,12 @@ public class searchFieldTest {
             driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
             driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
-            driver.get("http://training.skillo-bg.com:4200/posts/all");
+            driver.get("http://training.skillo-bg.com:4300/posts/all");
             WebElement login = driver.findElement(By.id("nav-link-login"));
             login.click();
 
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            wait.until(ExpectedConditions.urlToBe("http://training.skillo-bg.com:4200/users/login"));
+            wait.until(ExpectedConditions.urlToBe("http://training.skillo-bg.com:4300/users/login"));
 
             WebElement signInElement = driver.findElement(By.xpath("//p[text()='Sign in']"));
             wait.until(ExpectedConditions.visibilityOf(signInElement));
